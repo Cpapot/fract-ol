@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 14:01:43 by cpapot            #+#    #+#             */
-/*   Updated: 2022/11/30 18:08:46 by cpapot           ###   ########.fr       */
+/*   Created: 2022/11/08 15:44:41 by cpapot            #+#    #+#             */
+/*   Updated: 2022/11/30 12:05:21 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "../../includes/libft.h"
 
-t_com_nb	ft_mandelbrot(double r, double i, t_info info)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	t_com_nb	pos;
+	unsigned int	i;
+	unsigned int	len;
 
-	pos.x = (r * r - i * i) + info.c;
-	pos.y = (r * i + r * i);
-	return (pos);
+	i = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	len = ft_strlen(dst);
+	if (len + 1 > size)
+		return (size + ft_strlen(src));
+	while (src[i] != '\0' && len + i < size - 1)
+	{
+		dst[i + len] = src[i];
+		i++;
+	}
+	dst[i + len] = '\0';
+	return (ft_strlen(src) + len);
 }

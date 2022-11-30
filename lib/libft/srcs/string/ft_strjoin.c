@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_divergent.c                                  :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 11:59:30 by cpapot            #+#    #+#             */
-/*   Updated: 2022/11/30 18:09:26 by cpapot           ###   ########.fr       */
+/*   Created: 2022/11/10 19:02:18 by cpapot            #+#    #+#             */
+/*   Updated: 2022/11/30 12:05:18 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "../../includes/libft.h"
 
-int	ft_is_div(t_com_nb pos, t_com_nb (*f)(double, double, t_info), t_info info)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int			n;
-	int			i;
-	t_com_nb	ite;
+	char	*strs;
+	int		i;
+	int		u;
 
-	n = 0;
-	i = 80;
-	ite = pos;
-	while (n != i && ite.x <= info.born && ite.x >= -info.born
-		&& ite.y <= info.born && ite.y >= -info.born)
+	i = 0;
+	u = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	strs = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (strs == NULL)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		ite = f(ite.x, ite.y, info);
-		n++;
+		strs[i] = s1[i];
+		i++;
 	}
-	n = i - n;
-	return (n);
+	while (s2[u] != '\0')
+	{
+		strs[i + u] = s2[u];
+		u++;
+	}
+	strs[i + u] = '\0';
+	return (strs);
 }

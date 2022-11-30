@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 14:01:43 by cpapot            #+#    #+#             */
-/*   Updated: 2022/11/30 18:08:46 by cpapot           ###   ########.fr       */
+/*   Created: 2022/11/14 14:46:38 by cpapot            #+#    #+#             */
+/*   Updated: 2022/11/30 12:22:07 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "../../includes/libft.h"
 
-t_com_nb	ft_mandelbrot(double r, double i, t_info info)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_com_nb	pos;
-
-	pos.x = (r * r - i * i) + info.c;
-	pos.y = (r * i + r * i);
-	return (pos);
+	if (lst && del)
+	{
+		del(lst->content);
+		free(lst);
+	}
+	return ;
 }

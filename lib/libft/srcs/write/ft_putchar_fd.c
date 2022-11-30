@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 14:01:43 by cpapot            #+#    #+#             */
-/*   Updated: 2022/11/30 18:08:46 by cpapot           ###   ########.fr       */
+/*   Created: 2022/11/11 13:50:35 by cpapot            #+#    #+#             */
+/*   Updated: 2022/11/30 12:04:45 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "../../includes/libft.h"
 
-t_com_nb	ft_mandelbrot(double r, double i, t_info info)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_com_nb	pos;
-
-	pos.x = (r * r - i * i) + info.c;
-	pos.y = (r * i + r * i);
-	return (pos);
+	write(fd, &c, 1);
 }

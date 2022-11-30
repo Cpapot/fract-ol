@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 14:01:43 by cpapot            #+#    #+#             */
-/*   Updated: 2022/11/30 18:08:46 by cpapot           ###   ########.fr       */
+/*   Created: 2022/11/09 16:55:26 by cpapot            #+#    #+#             */
+/*   Updated: 2022/11/30 12:05:11 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "../../includes/libft.h"
 
-t_com_nb	ft_mandelbrot(double r, double i, t_info info)
+char	*ft_strdup(const char *s1)
 {
-	t_com_nb	pos;
+	char	*result;
+	int		len;
+	int		i;
 
-	pos.x = (r * r - i * i) + info.c;
-	pos.y = (r * i + r * i);
-	return (pos);
+	len = ft_strlen(s1);
+	i = 0;
+	result = malloc(sizeof(char) * (len + 1));
+	if (result == 0)
+		return (0);
+	while (i != len)
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	result[len] = '\0';
+	return (result);
 }

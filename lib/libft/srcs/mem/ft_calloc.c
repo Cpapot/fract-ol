@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 14:01:43 by cpapot            #+#    #+#             */
-/*   Updated: 2022/11/30 18:08:46 by cpapot           ###   ########.fr       */
+/*   Created: 2022/11/09 17:47:21 by cpapot            #+#    #+#             */
+/*   Updated: 2022/11/30 12:21:25 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "../../includes/libft.h"
 
-t_com_nb	ft_mandelbrot(double r, double i, t_info info)
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_com_nb	pos;
+	void			*result;
+	unsigned long	i;
 
-	pos.x = (r * r - i * i) + info.c;
-	pos.y = (r * i + r * i);
-	return (pos);
+	if (count != 0 && SIZE_MAX / count < size)
+		return (NULL);
+	i = 0;
+	result = malloc(count * size);
+	if (result == 0)
+		return (0);
+	while (i != count * size)
+	{
+		((unsigned char *)result)[i] = 0;
+		i++;
+	}
+	return (result);
 }
