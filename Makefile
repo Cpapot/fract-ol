@@ -7,9 +7,9 @@
 
 HEADERS 	=	fract_ol.h
 
-SRCS		=	ft_create_win.c ft_convert_axis.c \
+SRCS		=	ft_graphic.c main.c \
 				ft_is_divergent.c ft_mandelbrot.c \
-				main.c
+				ft_color.c
 
 MLXSRC		=	libmlx.a
 
