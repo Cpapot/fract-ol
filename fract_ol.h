@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:30:42 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/01 19:00:16 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/02 19:36:08 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_info
 	double	xcam;
 	double	ycam;
 	double	zoom;
+	double	zoomlimit;
 }		t_info;
 
 typedef struct p_list
@@ -49,9 +50,10 @@ void		ft_create_win(t_info *info);
 void		my_mlx_pixel_put(t_info *info, int x, int y, int color);
 t_com_nb	ft_convert_axis(int x, int y, t_info info);
 
-double		ft_is_div(t_com_nb pos, double (*f)(double, double));
 t_com_nb	ft_mandelbrot(double r, double i);
 double		ft_fractal(double r, double i);
 void		ft_put_color(t_info info, double n, int x, int y);
+void		ft_print_info(int key, t_info info);
+t_com_nb	ft_zoom(int x, int y, t_info info);
 
 #endif

@@ -8,8 +8,8 @@
 HEADERS 	=	fract_ol.h
 
 SRCS		=	ft_graphic.c main.c \
-				ft_is_divergent.c ft_mandelbrot.c \
-				ft_color.c
+				ft_mandelbrot.c ft_color.c\
+				 printinfo.c
 
 MLXSRC		=	libmlx.a
 
@@ -42,9 +42,7 @@ AR			=	ar rc
 
 NAME		=	fract_ol
 
-NAMEA		=	fract_ol.a
-
-FLAGS		= -framework OpenGL -framework AppKit -o
+FLAGS		=	-framework OpenGL -framework AppKit -o
 
 CFLAGS		=	-Wall -Wextra -Werror
 
@@ -65,22 +63,19 @@ all : lib ${NAME}
 
 ${NAME}:	lib ${OBJS}
 	${MAKE} lib
-	${AR} ${NAMEA} ${OBJS}
-	${CC} -I ${CFLAGS} ${LIBFT} ${MLX} ${OBJS} ${FLAGS} ${NAME}
+	${CC} -I ${CFLAGS} ${FLAGS} ${LIBFT} ${MLX} ${OBJS} -o ${NAME}
 
 %.o: ${SRCSDIR}%.c ${INCLUDES}
 
 	$(CC) -I ${CFLAGS} -c $< -o $@
 
 clean:
-	${RM} ${NAMEA}
 	${MAKE} clean -C ${LIBFTDIR}
 	${RM} ${OBJS}
 
 fclean:
 	${RM} ${OBJS}
 	${RM} ${NAME}
-	${RM} ${NAMEA}
 	${MAKE} fclean -C ${LIBFTDIR}
 	${MAKE} clean -C ${MLXDIR}
 

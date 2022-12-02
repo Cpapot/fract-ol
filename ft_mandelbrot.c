@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 14:01:43 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/01 18:16:31 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/02 15:47:33 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ double	ft_fractal(double r, double i)
 	y = 0;
 	x = 0;
 	u = 0;
-	max_iter = 40;
+	max_iter = 30;
 	while (u < max_iter)
 	{
 		tmp = x * x - y * y + r;

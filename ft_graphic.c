@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:45:23 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/01 19:02:37 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/02 19:41:07 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,26 @@ t_com_nb	ft_convert_axis(int x, int y, t_info info)
 		pos.y = -((size_y / 2) - (double)y);
 	else
 		pos.y = (double)y - (size_y / 2);
-	pos.y = ((pos.y) / 480) + (info.ycam / 480);
-	pos.x = ((pos.x) / 480) + (info.xcam / 480);
-	pos.x *= info.zoom;
-	pos.y *= info.zoom;
+	pos.y = ((pos.y) / 225) + (info.ycam / 225);
+	pos.x = ((pos.x) / 225) + (info.xcam / 225);
+	return (pos);
+}
+
+t_com_nb	ft_zoom(int x, int y, t_info info)
+{
+	int			size_x;
+	int			size_y;
+	t_com_nb	pos;
+
+	size_x = info.xsize;
+	size_y = info.ysize;
+	if ((double)x >= size_x / 2)
+		pos.x = -((size_x / 2) - (double)x);
+	else
+		pos.x = (double)x - (size_x / 2);
+	if ((double)y >= size_x / 2)
+		pos.y = -((size_y / 2) - (double)y);
+	else
+		pos.y = (double)y - (size_y / 2);
 	return (pos);
 }
