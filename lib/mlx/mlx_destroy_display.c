@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 12:58:26 by cpapot            #+#    #+#             */
-/*   Updated: 2022/11/30 23:26:55 by cpapot           ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "mlx_int.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	int	i;
-
-	i = 0;
-	while (i != (int)n)
-	{
-		if (((unsigned char *)s)[i] == (unsigned char)c)
-			return ((unsigned char *)s + i);
-		i++;
-	}
-	return (0);
+	XCloseDisplay(xvar->display);
 }
