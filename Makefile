@@ -59,9 +59,9 @@ MKDIR		=	mkdir -p
 #				 | | \ \ |_| | |  __/\__ \.
 #				 |_|  \_\__,_|_|\___||___/
 
-all : lib ${NAME}
+all : ${NAME}
 
-${NAME}:	lib ${OBJS}
+${NAME}:	${OBJS}
 	${MAKE} lib
 	${CC} -I ${CFLAGS} ${FLAGS} ${LIBFT} ${MLX} ${OBJS} -o ${NAME}
 

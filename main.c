@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:21:34 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/02 19:38:45 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/03 19:25:11 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_draw_fract(t_info info)
 		while (y != info.ysize)
 		{
 			pos = ft_convert_axis(x, y, info);
-			n = ft_fractal(pos.x, pos.y);
+			n = ft_mandelbrot(pos.x, pos.y);
 			ft_put_color(info, n, x, y);
 			y++;
 		}
@@ -75,8 +75,8 @@ int	deal_mouse(int key, int x, int y, t_info *info)
 	else
 		return (key);
 	mouse_pos = ft_zoom(x, y, *info);
-	cpy.xcam = mouse_pos.x;
-	cpy.ycam = mouse_pos.y;
+	cpy.xcam = (mouse_pos.x + cpy.xcam);
+	cpy.ycam = (mouse_pos.y + cpy.ycam);
 	ft_draw_fract(cpy);
 	*info = cpy;
 	ft_print_info(key, *info);
@@ -90,7 +90,7 @@ t_info	ft_programinfo(void)
 	info.xsize = 700;
 	info.ysize = 700;
 	info.zoom = 1;
-	info.xcam = -140;
+	info.xcam = 0;/*-140*/
 	info.ycam = 0;
 	info.move_ratio = 15;
 	info.zoomlimit = 2;

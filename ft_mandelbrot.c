@@ -6,19 +6,34 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 14:01:43 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/02 15:47:33 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/03 19:16:32 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-t_com_nb	ft_mandelbrot(double r, double i)
+double	ft_mandelbrot(double r, double i)
 {
-	t_com_nb	pos;
+	double		max_iter;
+	double		x;
+	double		y;
+	double		tmp;
+	double		u;
 
-	pos.x = (r * r - i * i);
-	pos.y = (r * i + r * i);
-	return (pos);
+	y = i;
+	x = r;
+	u = 0;
+	max_iter = 55;
+	while (u < max_iter)
+	{
+		tmp = x * x - y * y + 0.285;
+		y = 2 * x * y + 0.01;
+		x = tmp;
+		if (x * x + y * y > 4)
+			return (u / max_iter);
+		u++;
+	}
+	return (1);
 }
 
 double	ft_fractal(double r, double i)

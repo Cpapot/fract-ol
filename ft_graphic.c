@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:45:23 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/02 19:41:07 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/03 19:24:47 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,10 @@ t_com_nb	ft_convert_axis(int x, int y, t_info info)
 		pos.y = -((size_y / 2) - (double)y);
 	else
 		pos.y = (double)y - (size_y / 2);
-	pos.y = ((pos.y) / 225) + (info.ycam / 225);
-	pos.x = ((pos.x) / 225) + (info.xcam / 225);
+	pos.y = (((pos.y) / 225) + (info.ycam / 225));
+	pos.x = (((pos.x) / 225) + (info.xcam / 225));
+	pos.x *= info.zoom;
+	pos.y *= info.zoom;
 	return (pos);
 }
 
@@ -58,6 +60,7 @@ t_com_nb	ft_zoom(int x, int y, t_info info)
 {
 	int			size_x;
 	int			size_y;
+	int			tmp;
 	t_com_nb	pos;
 
 	size_x = info.xsize;
@@ -70,5 +73,6 @@ t_com_nb	ft_zoom(int x, int y, t_info info)
 		pos.y = -((size_y / 2) - (double)y);
 	else
 		pos.y = (double)y - (size_y / 2);
+	printf("%f, %f\n", pos.x, pos.x);
 	return (pos);
 }
