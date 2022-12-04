@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:21:34 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/03 19:25:11 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/04 17:30:06 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ void	ft_draw_fract(t_info info)
 		while (y != info.ysize)
 		{
 			pos = ft_convert_axis(x, y, info);
-			n = ft_mandelbrot(pos.x, pos.y);
+			if (info.fractal_type == 1)
+				n = ft_mandelbrot(pos.x, pos.y, info);
+			else if (info.fractal_type == 2)
+				n = ft_julia(pos.x, pos.y, info);
 			ft_put_color(info, n, x, y);
 			y++;
 		}
@@ -35,73 +38,17 @@ void	ft_draw_fract(t_info info)
 	mlx_put_image_to_window(info.mlx_ptr, info.win_ptr, info.img, 0, 0);
 }
 
-int	deal_key(int key, t_info *info)
-{
-	t_info	cpy;
-
-	cpy = *info;
-	if (key == 126)
-		cpy.ycam -= cpy.move_ratio;
-	else if (key == 125)
-		cpy.ycam += cpy.move_ratio;
-	else if (key == 123)
-		cpy.xcam -= cpy.move_ratio;
-	else if (key == 124)
-		cpy.xcam += cpy.move_ratio;
-	else if (key == 53)
-		exit(EXIT_SUCCESS);
-	else
-		return (key);
-	ft_draw_fract(cpy);
-	*info = cpy;
-	ft_print_info(key, *info);
-	return (key);
-}
-
-int	deal_mouse(int key, int x, int y, t_info *info)
-{
-	t_info		cpy;
-	t_com_nb	mouse_pos;
-
-	cpy = *info;
-	if (key == 4 || key == 2)
-	{
-		if (cpy.zoom >= cpy.zoomlimit)
-			return (key);
-		cpy.zoom *= 1.1;
-	}
-	else if (key == 5 || key == 1)
-		cpy.zoom /= 1.1;
-	else
-		return (key);
-	mouse_pos = ft_zoom(x, y, *info);
-	cpy.xcam = (mouse_pos.x + cpy.xcam);
-	cpy.ycam = (mouse_pos.y + cpy.ycam);
-	ft_draw_fract(cpy);
-	*info = cpy;
-	ft_print_info(key, *info);
-	return (key);
-}
-
-t_info	ft_programinfo(void)
+int	main(int argc, char **argv)
 {
 	t_info	info;
 
-	info.xsize = 700;
-	info.ysize = 700;
-	info.zoom = 1;
-	info.xcam = 0;/*-140*/
-	info.ycam = 0;
-	info.move_ratio = 15;
-	info.zoomlimit = 2;
-	return (info);
-}
-
-int	main(void)
-{
-	t_info	info;
-
-	info = ft_programinfo();
+	info.fractal_type = ft_check_choice(argc, argv);
+	if (info.fractal_type == 0)
+		return (0);
+	if (info.fractal_type == 1)
+		info = ft_mandelbrot_info();
+	else if (info.fractal_type == 2)
+		info = ft_julia_info();
 	ft_create_win(&info);
 	ft_draw_fract(info);
 	mlx_hook(info.win_ptr, 2, 1L << 0, deal_key, &info);

@@ -9,11 +9,12 @@ HEADERS 	=	fract_ol.h
 
 SRCS		=	ft_graphic.c main.c \
 				ft_mandelbrot.c ft_color.c\
-				 printinfo.c
+				printinfo.c ft_julia.c \
+				ft_hook.c
 
 MLXSRC		=	libmlx.a
 
-LIBFTSRC	=	libft.a libftprintf.a
+LIBFTSRC	=	libftprintf.a libft.a
 
 #					Directories
 
@@ -42,7 +43,7 @@ AR			=	ar rc
 
 NAME		=	fract_ol
 
-FLAGS		=	-framework OpenGL -framework AppKit -o
+FLAGS		=	-framework OpenGL -framework AppKit
 
 CFLAGS		=	-Wall -Wextra -Werror
 

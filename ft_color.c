@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 18:02:12 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/02 18:49:11 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/04 18:18:19 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_put_color(t_info info, double n, int x, int y)
 {
 	if (n == 1)
 		my_mlx_pixel_put(&info, x, y, 0x000000);
-	else if (n >= 0.95)
-		my_mlx_pixel_put(&info, x, y, 0x7d569b);
-	else if (n >= 0.9)
+	else
+		my_mlx_pixel_put(&info, x, y, n * 1000);
+	/*else if (n >= 0.9)
 		my_mlx_pixel_put(&info, x, y, 0x3f2ea2);
 	else if (n >= 0.8)
 		my_mlx_pixel_put(&info, x, y, 0x2e77a2);
@@ -48,10 +48,10 @@ void	ft_put_color(t_info info, double n, int x, int y)
 		my_mlx_pixel_put(&info, x, y, 0xfee440);
 	else if (n >= 0.2)
 		my_mlx_pixel_put(&info, x, y, 0xdaff7d);
-	/*else if (n >= 0.15)
-		my_mlx_pixel_put(&info, x, y, 0x20ac6f);*/
+	else if (n >= 0.15)
+		my_mlx_pixel_put(&info, x, y, 0x20ac6f);
 	else if (n <= 0.2)
 		my_mlx_pixel_put(&info, x, y, 0xffe400);
 	else
-		my_mlx_pixel_put(&info, x, y, 0xffffff);
+		my_mlx_pixel_put(&info, x, y, 0xffffff);*/
 }

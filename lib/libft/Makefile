@@ -75,7 +75,7 @@ OBJS		=	$(SRCS:.c=.o)
 #		    \  / (_| | |  | | (_| | |_) | |  __/\__ \.
 #		     \/ \__,_|_|  |_|\__,_|_.__/|_|\___||___/
 
-AR			=	ar rc
+AR			=	ar rcs
 
 NAME		=	libft.a
 
@@ -100,7 +100,7 @@ MKDIR		=	mkdir -p
 all : ${NAME} printf
 
 ${NAME}:	${OBJS}
-	${AR} ${NAME} $<
+	${AR} ${NAME} ${OBJS}
 
 clean:
 	${MAKE} clean -C ${PRINTF}

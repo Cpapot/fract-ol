@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:30:42 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/03 19:00:21 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/04 18:27:32 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # define FRACT_OL_H
 
 # include "lib/libft/includes/libft.h"
-# include "lib/libft/srcs/ft_printf/ft_printf.h"
 # include "lib/mlx/mlx.h"
 # include <math.h>
 # include <unistd.h>
@@ -33,10 +32,14 @@ typedef struct s_info
 	int		xsize;
 	int		ysize;
 	int		move_ratio;
+	int		fractal_type;
+	double	max_ite;
 	double	xcam;
 	double	ycam;
 	double	zoom;
 	double	zoomlimit;
+	double	real;
+	double	imaginary;
 }		t_info;
 
 typedef struct p_list
@@ -45,15 +48,32 @@ typedef struct p_list
 	double	y;
 }		t_com_nb;
 
+/*					main					*/
+void		ft_draw_fract(t_info info);
+
 /*					ft_graphics				*/
 void		ft_create_win(t_info *info);
 void		my_mlx_pixel_put(t_info *info, int x, int y, int color);
 t_com_nb	ft_convert_axis(int x, int y, t_info info);
-
-double		ft_mandelbrot(double r, double i);
-double		ft_fractal(double r, double i);
-void		ft_put_color(t_info info, double n, int x, int y);
-void		ft_print_info(int key, t_info info);
 t_com_nb	ft_zoom(int x, int y, t_info info);
+
+/*					ft_mandelbrot			*/
+double		ft_mandelbrot(double r, double i, t_info info);
+t_info		ft_mandelbrot_info(void);
+
+/*					ft_julia				*/
+double		ft_julia(double r, double i, t_info info);
+t_info		ft_julia_info(void);
+
+/*					ft_colors				*/
+void		ft_put_color(t_info info, double n, int x, int y);
+
+/*					ft_printinfo			*/
+void		ft_print_info(int key, t_info info);
+int			ft_check_choice(int argc, char **argv);
+
+/*					ft_hook					*/
+int			deal_mouse(int key, int x, int y, t_info *info);
+int			deal_key(int key, t_info *info);
 
 #endif

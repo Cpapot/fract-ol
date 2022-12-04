@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:20:49 by cpapot            #+#    #+#             */
-/*   Updated: 2022/11/20 16:16:03 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/04 15:28:25 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define LIBFT_H
 
+# include "../srcs/ft_printf/ft_printf.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
