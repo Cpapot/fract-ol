@@ -6,11 +6,11 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:29:01 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/04 18:53:21 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/05 00:58:46 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "../inc/fract_ol.h"
 
 int	deal_key2(int key, t_info *info)
 {
@@ -25,17 +25,17 @@ int	deal_key2(int key, t_info *info)
 		cpy.imaginary += 0.001;
 	else if (key == 45 && cpy.fractal_type == 2)
 		cpy.imaginary -= 0.001;
-	else if (key == 83 && cpy.fractal_type == 2)
+	else if (key == KP_1 && cpy.fractal_type == 2)
 	{
 		cpy.real = 0.355;
 		cpy.imaginary = 0.355;
 	}
-	else if (key == 84 && cpy.fractal_type == 2)
+	else if (key == KP_2 && cpy.fractal_type == 2)
 	{
 		cpy.real = 0;
 		cpy.imaginary = 0.8;
 	}
-	else if (key == 85 && cpy.fractal_type == 2)
+	else if (key == KP_4 && cpy.fractal_type == 2)
 	{
 		cpy.real = -0.54;
 		cpy.imaginary = 0.54;
@@ -50,17 +50,16 @@ int	deal_key(int key, t_info *info)
 {
 	t_info	cpy;
 
-	printf("\n%s %d\n", "input :", key);
 	cpy = *info;
-	if (key == 126 || key == 13)
+	if (key == KB_UP || key == 13)
 		cpy.ycam -= cpy.move_ratio;
-	else if (key == 125 || key == 1)
+	else if (key == KB_DOWN || key == 1)
 		cpy.ycam += cpy.move_ratio;
-	else if (key == 123 || key == 0)
+	else if (key == KB_LEFT || key == 0)
 		cpy.xcam -= cpy.move_ratio;
-	else if (key == 124 || key == 2)
+	else if (key == KB_RIGHT || key == 2)
 		cpy.xcam += cpy.move_ratio;
-	else if (key == 53)
+	else if (key == KB_ESC)
 		exit(EXIT_SUCCESS);
 	else if (key == 32)
 		cpy.max_ite -= 2;

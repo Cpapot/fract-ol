@@ -6,11 +6,11 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:48:30 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/04 18:49:48 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/05 00:46:05 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "../inc/fract_ol.h"
 
 t_info	ft_julia_info(void)
 {

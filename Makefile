@@ -5,9 +5,19 @@
 #				| |    | | |  __/\__ \.
 #				|_|    |_|_|\___||___/
 
+
+ifeq ($(shell uname -s), Linux)
+  MLXDIR	= ./minilibx-linux/
+  FLAGS		+= -lX11 -lXext -L$(MLXDIR)
+else
+  MLXDIR	= ./mlx/
+  FLAGS		+= -framework OpenGL -framework AppKit
+endif
+
+
 HEADERS 	=	fract_ol.h
 
-SRCS		=	ft_graphic.c main.c \
+SRCSFILE		=	ft_graphic.c main.c \
 				ft_mandelbrot.c ft_color.c\
 				printinfo.c ft_julia.c \
 				ft_hook.c
@@ -18,19 +28,25 @@ LIBFTSRC	=	libftprintf.a libft.a
 
 #					Directories
 
-MLXDIR		=	lib/mlx/
+HEADERSDIR	=	./inc/
 
-LIBFTDIR	=	lib/libft/
+SRCSDIR		=	./src/
 
-OBJSDIR		=	.objs/
+LIBFTDIR	=	libft/
+
+OBJSDIR		=	./.objs/
 
 #					Full Path
+
+HEAD		=	$(addprefix $(HEADERSDIR),$(HEADERS))
+
+SRCS		=	$(addprefix $(SRCSDIR),$(SRCSFILE))
 
 LIBFT		=	$(addprefix $(LIBFTDIR),$(LIBFTSRC))
 
 MLX			=	$(addprefix $(MLXDIR),$(MLXSRC))
 
-OBJS		=	$(SRCS:.c=.o)
+OBJS		=	$(SRCS:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
 
 #		 __      __        _       _     _
 #		 \ \    / /       (_)     | |   | |
@@ -43,9 +59,7 @@ AR			=	ar rc
 
 NAME		=	fract_ol
 
-FLAGS		=	-framework OpenGL -framework AppKit
-
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -O3
 
 CC			=	gcc
 
@@ -64,11 +78,10 @@ all : ${NAME}
 
 ${NAME}:	${OBJS}
 	${MAKE} lib
-	${CC} -I ${CFLAGS} ${FLAGS} ${LIBFT} ${MLX} ${OBJS} -o ${NAME}
+	${CC} ${OBJS} ${LIBFT} ${MLX} ${FLAGS} -o ${NAME}
 
-%.o: ${SRCSDIR}%.c ${INCLUDES}
-
-	$(CC) -I ${CFLAGS} -c $< -o $@
+$(OBJSDIR)%.o: ${SRCSDIR}%.c ${HEAD}
+	$(CC) ${CFLAGS} -c $< -o $@ -I$(HEADERSDIR)
 
 clean:
 	${MAKE} clean -C ${LIBFTDIR}

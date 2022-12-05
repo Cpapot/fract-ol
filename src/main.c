@@ -6,11 +6,11 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:21:34 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/04 17:30:06 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/05 00:47:33 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "../inc/fract_ol.h"
 
 void	ft_draw_fract(t_info info)
 {
@@ -20,6 +20,7 @@ void	ft_draw_fract(t_info info)
 	int			y;
 
 	x = 0;
+	n = 0;
 	while (x != info.xsize)
 	{
 		y = 0;

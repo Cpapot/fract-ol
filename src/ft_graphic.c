@@ -6,11 +6,11 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:45:23 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/03 19:34:46 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/05 00:47:04 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "../inc/fract_ol.h"
 
 void	ft_create_win(t_info *info)
 {
@@ -60,7 +60,6 @@ t_com_nb	ft_zoom(int x, int y, t_info info)
 {
 	int			size_x;
 	int			size_y;
-	int			tmp;
 	t_com_nb	pos;
 
 	size_x = info.xsize;

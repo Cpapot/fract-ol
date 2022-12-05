@@ -6,18 +6,18 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 18:02:12 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/04 18:18:19 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/05 01:07:59 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "../inc/fract_ol.h"
 
 void	ft_put_color(t_info info, double n, int x, int y)
 {
 	if (n == 1)
 		my_mlx_pixel_put(&info, x, y, 0x000000);
 	else
-		my_mlx_pixel_put(&info, x, y, n * 1000);
+		my_mlx_pixel_put(&info, x, y, n * 10000);
 	/*else if (n >= 0.9)
 		my_mlx_pixel_put(&info, x, y, 0x3f2ea2);
 	else if (n >= 0.8)

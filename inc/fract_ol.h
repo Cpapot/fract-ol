@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:30:42 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/04 18:27:32 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/05 00:50:50 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 # define FRACT_OL_H
 
-# include "lib/libft/includes/libft.h"
-# include "lib/mlx/mlx.h"
+# include "../libft/includes/libft.h"
+# include "../minilibx-linux/mlx.h"
+# include "key.h"
 # include <math.h>
 # include <unistd.h>
 # include <stdio.h>
