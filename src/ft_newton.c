@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_julia.c                                         :+:      :+:    :+:   */
+/*   ft_newton.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/04 15:48:30 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/05 14:21:44 by cpapot           ###   ########.fr       */
+/*   Created: 2022/12/05 15:10:00 by cpapot            #+#    #+#             */
+/*   Updated: 2022/12/05 17:48:46 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fract_ol.h"
 
-t_info	ft_julia_info(void)
+t_info	ft_newton_info(void)
 {
 	t_info	info;
 
@@ -23,14 +23,14 @@ t_info	ft_julia_info(void)
 	info.ycam = 0;
 	info.move_ratio = 15;
 	info.zoomlimit = 2;
-	info.fractal_type = 2;
-	info.max_ite = 50;
-	info.real = 0.285;
-	info.imaginary = 0.01;
+	info.fractal_type = 3;
+	info.max_ite = 150;
+	info.real = 0.418000;
+	info.imaginary = -0.010000;
 	return (info);
 }
 
-double	ft_julia(double r, double i, t_info info)
+double	ft_newton(double r, double i, t_info info)
 {
 	double		max_iter;
 	double		x;
@@ -44,8 +44,8 @@ double	ft_julia(double r, double i, t_info info)
 	max_iter = info.max_ite;
 	while (u < max_iter)
 	{
-		tmp = x * x - y * y + info.real;
-		y = 2 * x * y + info.imaginary;
+		tmp = (x * x * x) - 3 * x * (y * y) + info.real;
+		y = 3 * (x * x) * y - (y * y * y) + info.imaginary;
 		x = tmp;
 		if (x * x + y * y > 4)
 			return (u / max_iter);

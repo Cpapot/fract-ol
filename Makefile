@@ -15,12 +15,12 @@ else
 endif
 
 
-HEADERS 	=	fract_ol.h
+HEADERS 	=	fract_ol.h key.h
 
 SRCSFILE		=	ft_graphic.c main.c \
 				ft_mandelbrot.c ft_color.c\
 				printinfo.c ft_julia.c \
-				ft_hook.c
+				ft_hook.c ft_newton.c
 
 MLXSRC		=	libmlx.a
 

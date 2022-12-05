@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:21:34 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/05 00:47:33 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/05 17:53:35 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	ft_draw_fract(t_info info)
 				n = ft_mandelbrot(pos.x, pos.y, info);
 			else if (info.fractal_type == 2)
 				n = ft_julia(pos.x, pos.y, info);
+			else if (info.fractal_type == 3)
+				n = ft_newton(pos.x, pos.y, info);
 			ft_put_color(info, n, x, y);
 			y++;
 		}
@@ -50,6 +52,9 @@ int	main(int argc, char **argv)
 		info = ft_mandelbrot_info();
 	else if (info.fractal_type == 2)
 		info = ft_julia_info();
+	else if (info.fractal_type == 3)
+		info = ft_newton_info();
+	info.color = 0;
 	ft_create_win(&info);
 	ft_draw_fract(info);
 	mlx_hook(info.win_ptr, 2, 1L << 0, deal_key, &info);

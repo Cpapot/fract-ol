@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 15:46:17 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/05 00:45:47 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/05 18:00:47 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_print_info(int key, t_info info)
 	printf("	%s	%f\n", "real:", info.real);
 	printf("	%s	%f\n", "inmaginary:", info.imaginary);
 	printf("	%s	%f\n", "iter:", info.max_ite);
+	printf("	%s	%d\n", "color:", info.color);
 	printf("%s\n\n\n", "======================================");
 }
 
@@ -34,6 +35,7 @@ void	ft_print_fract(void)
 	ft_printf("\n%s\n", "   you have to choose one of these fractals:");
 	ft_printf("\n%s\n", "		- Mandelb");
 	ft_printf("\n%s\n", "		- Julia");
+	ft_printf("\n%s\n", "		- Newton");
 	ft_printf("\n%s\n", "   (to choose a fractal you must put it in a parameter");
 	ft_printf("%s\n\n", "   such as : \"./fractol Mandelb\".)");
 }
@@ -67,6 +69,11 @@ int	ft_check_choice(int argc, char **argv)
 	{
 		ft_print_control();
 		return (2);
+	}
+	else if (!ft_strncmp("Newton", argv[1], 7))
+	{
+		ft_print_control();
+		return (3);
 	}
 	ft_print_fract();
 	return (0);

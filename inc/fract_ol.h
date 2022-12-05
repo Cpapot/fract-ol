@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:30:42 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/05 00:50:50 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/05 17:50:42 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # define FRACT_OL_H
 
 # include "../libft/includes/libft.h"
-# include "../minilibx-linux/mlx.h"
 # include "key.h"
 # include <math.h>
 # include <unistd.h>
@@ -34,6 +33,7 @@ typedef struct s_info
 	int		ysize;
 	int		move_ratio;
 	int		fractal_type;
+	int		color;
 	double	max_ite;
 	double	xcam;
 	double	ycam;
@@ -57,6 +57,10 @@ void		ft_create_win(t_info *info);
 void		my_mlx_pixel_put(t_info *info, int x, int y, int color);
 t_com_nb	ft_convert_axis(int x, int y, t_info info);
 t_com_nb	ft_zoom(int x, int y, t_info info);
+
+/*					ft_newton				*/
+t_info		ft_newton_info(void);
+double		ft_newton(double r, double i, t_info info);
 
 /*					ft_mandelbrot			*/
 double		ft_mandelbrot(double r, double i, t_info info);
