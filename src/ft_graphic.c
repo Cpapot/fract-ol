@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:45:23 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/05 19:05:30 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/06 18:08:16 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,12 @@ t_com_nb	ft_convert_axis(int x, int y, t_info info)
 
 	size_x = info.xsize;
 	size_y = info.ysize;
-	if ((double)x >= size_x / 2)
-		pos.x = -((size_x / 2) - (double)x);
-	else
-		pos.x = (double)x - (size_x / 2);
-	if ((double)y >= size_x / 2)
-		pos.y = -((size_y / 2) - (double)y);
-	else
-		pos.y = (double)y - (size_y / 2);
-	pos.y = (((pos.y) / 225) + (info.ycam / 225));
-	pos.x = (((pos.x) / 225) + (info.xcam / 225));
-	pos.x *= info.zoom;
-	pos.y *= info.zoom;
-	/*pos.y = (y - info.ysize / 2.0) / (0.5 * info.zoom * info.ysize) + info.ycam / 225;
-	pos.x = (x - info.xsize / 2.0) / (0.5 * info.zoom * info.xsize) + info.xcam / 225;*/
+	pos.y = (y - size_y / 2.0) / (0.5 * info.zoom * size_y) + info.ycam / 225;
+	pos.x = (x - size_x / 2.0) / (0.5 * info.zoom * size_x) + info.xcam / 225;
 	return (pos);
 }
 
-t_com_nb	ft_zoom(int x, int y, t_info info)
+t_com_nb	ft_mousse_pos(int x, int y, t_info info)
 {
 	int			size_x;
 	int			size_y;
@@ -66,16 +54,7 @@ t_com_nb	ft_zoom(int x, int y, t_info info)
 
 	size_x = info.xsize;
 	size_y = info.ysize;
-	if ((double)x >= size_x / 2)
-		pos.x = -((size_x / 2) - (double)x);
-	else
-		pos.x = (double)x - (size_x / 2);
-	if ((double)y >= size_x / 2)
-		pos.y = -((size_y / 2) - (double)y);
-	else
-		pos.y = (double)y - (size_y / 2);
-	printf("%f, %f\n", pos.x, pos.x);
-	/*pos.y = (y - info.ysize / 2.0) / (0.5 * info.zoom * info.ysize) + info.ycam / 225;
-	pos.x = (x - info.xsize / 2.0) / (0.5 * info.zoom * info.xsize) + info.xcam / 225;*/
+	pos.y = (y - size_y / 2.0) / (0.5 * info.zoom * size_y) + info.ycam / 225;
+	pos.x = (x - size_x / 2.0) / (0.5 * info.zoom * size_x) + info.xcam / 225;
 	return (pos);
 }

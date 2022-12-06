@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 15:46:17 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/05 18:00:47 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/06 15:46:11 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_print_info(int key, t_info info)
 	printf("%s\n", "            Render Done");
 	printf("%s\n", "======================================");
 	printf("	%s	%d\n", "input:", key);
-	printf("	%s	%f\n", "x-pos of cam:", info.xcam);
-	printf("	%s	%f\n", "y-pos of cam:", info.ycam);
+	printf("	%s	%f\n", "x-pos of cam:", info.xcam / info.zoom);
+	printf("	%s	%f\n", "y-pos of cam:", info.ycam / info.zoom);
 	printf("	%s	%f\n", "zoom ratio:", info.zoom);
 	printf("	%s	%f\n", "real:", info.real);
 	printf("	%s	%f\n", "inmaginary:", info.imaginary);

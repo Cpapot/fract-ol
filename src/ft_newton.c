@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:10:00 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/05 17:48:46 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/06 18:27:09 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ t_info	ft_newton_info(void)
 
 	info.xsize = 700;
 	info.ysize = 700;
-	info.zoom = 1;
+	info.zoom = 0.7;
 	info.xcam = 0;
 	info.ycam = 0;
 	info.move_ratio = 15;
-	info.zoomlimit = 2;
+	info.zoomlimit = 0.5;
 	info.fractal_type = 3;
-	info.max_ite = 150;
+	info.max_ite = 50;
 	info.real = 0.418000;
 	info.imaginary = -0.010000;
 	return (info);

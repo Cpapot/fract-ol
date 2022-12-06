@@ -6,13 +6,13 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 18:02:12 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/05 19:06:21 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/06 14:20:48 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fract_ol.h"
 
-void	ft_multicolor(t_info info, double n, int x, int y)
+void	ft_weird(t_info info, double n, int x, int y)
 {
 	int	i = 0;
 	const uint16_t COLOR_TABLE[143] = { // HTML color
@@ -37,7 +37,7 @@ void	ft_multicolor(t_info info, double n, int x, int y)
 
 }
 
-/*
+
 void	ft_multicolor(t_info info, double n, int x, int y)
 {
 	if (n == 1)
@@ -76,7 +76,7 @@ void	ft_multicolor(t_info info, double n, int x, int y)
 		my_mlx_pixel_put(&info, x, y, 0xffe400);
 	else
 		my_mlx_pixel_put(&info, x, y, 0xffffff);
-}*/
+}
 
 void	ft_shaded_blue(t_info info, double n, int x, int y)
 {
@@ -90,9 +90,11 @@ void	ft_put_color(t_info info, double n, int x, int y)
 {
 	int	s;
 
-	s = info.color % 2;
+	s = info.color % 3;
 	if (s == 0)
 		ft_shaded_blue(info, n, x, y);
 	else if (s == 1)
 		ft_multicolor(info, n, x, y);
+	else if (s == 2)
+		ft_weird(info, n, x, y);
 }

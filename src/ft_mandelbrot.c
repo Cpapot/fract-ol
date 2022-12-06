@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 14:01:43 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/05 01:10:58 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/06 18:26:46 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ t_info	ft_mandelbrot_info(void)
 
 	info.xsize = 700;
 	info.ysize = 700;
-	info.zoom = 1;
+	info.zoom = 0.7;
 	info.xcam = -140;
 	info.ycam = 0;
 	info.move_ratio = 15;
-	info.zoomlimit = 2;
+	info.zoomlimit = 0.5;
 	info.fractal_type = 1;
 	info.max_ite = 25;
 	return (info);

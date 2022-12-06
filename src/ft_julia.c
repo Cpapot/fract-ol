@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:48:30 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/05 14:21:44 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/06 18:27:14 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ t_info	ft_julia_info(void)
 
 	info.xsize = 700;
 	info.ysize = 700;
-	info.zoom = 1;
+	info.zoom = 0.7;
 	info.xcam = 0;
 	info.ycam = 0;
 	info.move_ratio = 15;
-	info.zoomlimit = 2;
+	info.zoomlimit = 0.5;
 	info.fractal_type = 2;
 	info.max_ite = 50;
 	info.real = 0.285;

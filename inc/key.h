@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 00:50:20 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/06 13:12:43 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/06 18:31:46 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,6 @@
 #  define KP_2			84
 #  define KP_1			83
 #  define KB_TAB		48
+#  define KP_PLUS		69
+#  define KP_MINUS		78
 # endif
