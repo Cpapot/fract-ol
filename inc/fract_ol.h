@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:30:42 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/07 16:16:11 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/07 22:17:44 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_info
 	double	zoomlimit;
 	double	real;
 	double	imaginary;
+	double	n;
 }		t_info;
 
 typedef struct p_list
