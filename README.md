@@ -1,2 +1,3 @@
 # fract-ol
-Ce projet consiste à créer graphiquement de jolies fractales.
+This project consists in creating graphically beautiful fractals
+(work on linux & MacOs)
