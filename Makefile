@@ -77,7 +77,7 @@ MKDIR		=	mkdir -p
 
 all : ${NAME}
 
-${NAME}:	${OBJS}
+${NAME}:	${OBJS} Makefile
 	${MAKE} lib
 	${CC} ${OBJS} ${LIBFT} ${MLX} ${FLAGS} -o ${NAME}
 
