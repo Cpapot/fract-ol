@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:29:01 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/06 18:31:58 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/07 02:30:05 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,13 @@
 
 int	deal_key3(int key, t_info *info)
 {
-	t_info	cpy;
-
-	cpy = *info;
-	if (key == KP_2 && cpy.fractal_type == 2)
-	{
-		cpy.real = 0;
-		cpy.imaginary = 0.8;
-	}
-	else if (key == KP_3 && cpy.fractal_type == 2)
-	{
-		cpy.real = -0.54;
-		cpy.imaginary = 0.54;
-	}
-	else if (key == KP_4 && cpy.fractal_type == 2)
-	{
-		cpy.real = -0.8;
-		cpy.imaginary = 0.156;
-	}
-	ft_draw_fract(cpy);
-	*info = cpy;
+	if (info->fractal_type == 1)
+		ft_mandelbrot_preset(key, info);
+	else if (info->fractal_type == 2)
+		ft_julia_preset(key, info);
+	else if (info->fractal_type == 3)
+		ft_newton_preset(key, info);
+	ft_draw_fract(*info);
 	ft_print_info(key, *info);
 	return (key);
 }
@@ -52,11 +39,6 @@ int	deal_key2(int key, t_info *info)
 		cpy.imaginary += 0.001;
 	else if (key == KB_N && (cpy.fractal_type == 2 || cpy.fractal_type == 3))
 		cpy.imaginary -= 0.001;
-	else if (key == KP_1 && cpy.fractal_type == 2)
-	{
-		cpy.real = 0.355;
-		cpy.imaginary = 0.355;
-	}
 	else
 		return (deal_key3(key, info));
 	ft_draw_fract(cpy);
@@ -115,10 +97,10 @@ int	deal_mouse(int key, int x, int y, t_info *info)
 	else
 		return (key);
 	mouse_pos = ft_mousse_pos(x, y, *info);
-	cpy.xcam = (mouse_pos.x) * 225;
-	cpy.ycam = (mouse_pos.y) * 225;
+	cpy.xcam = mouse_pos.x * 225;
+	cpy.ycam = mouse_pos.y * 225;
 	*info = cpy;
-	ft_draw_fract(cpy);
+	ft_draw_fract(*info);
 	ft_print_info(key, *info);
 	return (key);
 }

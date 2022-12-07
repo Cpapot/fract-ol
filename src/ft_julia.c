@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:48:30 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/06 18:27:14 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/07 02:40:14 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ t_info	ft_julia_info(void)
 	info.move_ratio = 15;
 	info.zoomlimit = 0.5;
 	info.fractal_type = 2;
-	info.max_ite = 50;
-	info.real = 0.285;
+	info.max_ite = 38;
+	info.real = 0.284;
 	info.imaginary = 0.01;
 	return (info);
 }
