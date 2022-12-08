@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:29:01 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/07 16:17:04 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/08 01:05:32 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	deal_key2(int key, t_info *info)
 		cpy.zoom *= 1.1;
 	else if (key == KP_MINUS)
 		cpy.zoom /= 1.1;
+	else if (key == KB_TAB)
+		cpy.color += 1;
 	else
 		return (deal_key3(key, info));
 	if (cpy.zoom <= 0.5)
@@ -66,11 +68,12 @@ int	deal_key(int key, t_info *info)
 	else if (key == KB_ESC)
 		exit(EXIT_SUCCESS);
 	else if (key == KB_U)
-		cpy.max_ite -= 2;
+	{
+		if (cpy.max_ite >= 5)
+			cpy.max_ite -= 5;
+	}
 	else if (key == KB_I)
-		cpy.max_ite += 2;
-	else if (key == KB_TAB)
-		cpy.color += 1;
+		cpy.max_ite += 5;
 	else
 		return (deal_key2(key, info));
 	ft_draw_fract(cpy);

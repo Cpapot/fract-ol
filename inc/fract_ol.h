@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:30:42 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/07 22:17:44 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/08 00:48:13 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ double		ft_julia(double r, double i, t_info info);
 t_info		ft_julia_info(void);
 
 /*					ft_colors				*/
-void		ft_put_color(t_info info, double n, int x, int y);
+void		ft_put_color(t_info info, int x, int y);
 
 /*					ft_printinfo			*/
 int			ft_check_choice(int argc, char **argv);

@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:21:34 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/05 17:53:35 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/08 01:02:04 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 void	ft_draw_fract(t_info info)
 {
-	double		n;
 	t_com_nb	pos;
 	int			x;
 	int			y;
 
 	x = 0;
-	n = 0;
 	while (x != info.xsize)
 	{
 		y = 0;
@@ -28,17 +26,18 @@ void	ft_draw_fract(t_info info)
 		{
 			pos = ft_convert_axis(x, y, info);
 			if (info.fractal_type == 1)
-				n = ft_mandelbrot(pos.x, pos.y, info);
+				info.n = ft_mandelbrot(pos.x, pos.y, info);
 			else if (info.fractal_type == 2)
-				n = ft_julia(pos.x, pos.y, info);
+				info.n = ft_julia(pos.x, pos.y, info);
 			else if (info.fractal_type == 3)
-				n = ft_newton(pos.x, pos.y, info);
-			ft_put_color(info, n, x, y);
+				info.n = ft_newton(pos.x, pos.y, info);
+			ft_put_color(info, x, y);
 			y++;
 		}
 		x++;
 	}
 	mlx_put_image_to_window(info.mlx_ptr, info.win_ptr, info.img, 0, 0);
+	ft_printf("\nRENDER DONE (%d iter)", (int)info.max_ite);
 }
 
 int	main(int argc, char **argv)
