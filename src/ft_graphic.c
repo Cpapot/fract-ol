@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:45:23 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/07 16:10:06 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/08 02:03:02 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,22 @@
 
 void	ft_create_win(t_info *info)
 {
+	char	*man;
+	char	*jul;
+	char	*new;
 	t_info	win;
 
+	man = "Mandelbrot";
+	jul = "Julia";
+	new = "Newton";
 	win = *info;
 	win.mlx_ptr = mlx_init();
-	win.win_ptr = mlx_new_window(win.mlx_ptr, win.xsize, win.ysize, "Fractol");
+	if (win.fractal_type == 1)
+		win.win_ptr = mlx_new_window(win.mlx_ptr, win.xsize, win.ysize, man);
+	else if (win.fractal_type == 2)
+		win.win_ptr = mlx_new_window(win.mlx_ptr, win.xsize, win.ysize, jul);
+	else if (win.fractal_type == 3)
+		win.win_ptr = mlx_new_window(win.mlx_ptr, win.xsize, win.ysize, new);
 	win.img = mlx_new_image(win.mlx_ptr, win.xsize, win.ysize);
 	win.img_addrs = mlx_get_data_addr(win.img, &win.bit_per_p,
 			&win.line_len, &win.endian);
