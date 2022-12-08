@@ -15,7 +15,7 @@ else
 endif
 
 
-HEADERS 	=	fract_ol.h key.h
+HEADERS 	=	fract_ol.h
 
 SRCSFILE		=	ft_graphic.c main.c \
 				ft_mandelbrot.c ft_color.c\
