@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:21:34 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/08 01:02:04 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/10 12:02:34 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	main(int argc, char **argv)
 	ft_create_win(&info);
 	ft_draw_fract(info);
 	mlx_hook(info.win_ptr, 2, 1L << 0, deal_key, &info);
+	mlx_hook(info.win_ptr, 17, 0, close_window, &info);
 	mlx_mouse_hook(info.win_ptr, deal_mouse, &info);
 	mlx_loop(info.mlx_ptr);
 }

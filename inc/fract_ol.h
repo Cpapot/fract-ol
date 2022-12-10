@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:30:42 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/08 16:06:06 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/10 12:30:11 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ int			ft_check_choice(int argc, char **argv);
 /*					ft_hook					*/
 int			deal_mouse(int key, int x, int y, t_info *info);
 int			deal_key(int key, t_info *info);
+int			close_window(int key, t_info *info);
 
 /*					ft_preset				*/
 void		ft_julia_preset(int key, t_info *info);

@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:29:01 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/08 01:05:32 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/10 12:32:32 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	deal_key(int key, t_info *info)
 		cpy.xcam -= cpy.move_ratio / cpy.zoom;
 	else if (key == KB_RIGHT || key == KB_D)
 		cpy.xcam += cpy.move_ratio / cpy.zoom;
-	else if (key == KB_ESC)
+	else if (key == KB_ESC | key == 17)
 		exit(EXIT_SUCCESS);
 	else if (key == KB_U)
 	{
@@ -103,4 +103,10 @@ int	deal_mouse(int key, int x, int y, t_info *info)
 	*info = cpy;
 	ft_draw_fract(*info);
 	return (key);
+}
+
+int	close_window(int key, t_info *info)
+{
+	key = info->xsize;
+	exit(EXIT_SUCCESS);
 }
