@@ -7,7 +7,7 @@
 
 
 ifeq ($(shell uname -s), Linux)
-  MLXDIR	= ./minilibx-linux/
+  MLXDIR	= ./mlx_lin/
   FLAGS		+= -lX11 -lXext -L$(MLXDIR)
 else
   MLXDIR	= ./mlx/
