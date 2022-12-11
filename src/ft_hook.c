@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:29:01 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/10 12:32:32 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/11 23:12:03 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 int	deal_key3(int key, t_info *info)
 {
+	t_info	cpy;
+
+	cpy = *info;
 	if (info->fractal_type == 1)
 		ft_mandelbrot_preset(key, info);
 	else if (info->fractal_type == 2)
 		ft_julia_preset(key, info);
 	else if (info->fractal_type == 3)
 		ft_newton_preset(key, info);
-	ft_draw_fract(*info);
+	ft_draw_fract(cpy);
+	*info = cpy;
 	return (key);
 }
 
@@ -65,7 +69,7 @@ int	deal_key(int key, t_info *info)
 		cpy.xcam -= cpy.move_ratio / cpy.zoom;
 	else if (key == KB_RIGHT || key == KB_D)
 		cpy.xcam += cpy.move_ratio / cpy.zoom;
-	else if (key == KB_ESC | key == 17)
+	else if (key == KB_ESC || key == 17)
 		exit(EXIT_SUCCESS);
 	else if (key == KB_U)
 	{
@@ -105,8 +109,7 @@ int	deal_mouse(int key, int x, int y, t_info *info)
 	return (key);
 }
 
-int	close_window(int key, t_info *info)
+int	close_window(void)
 {
-	key = info->xsize;
 	exit(EXIT_SUCCESS);
 }

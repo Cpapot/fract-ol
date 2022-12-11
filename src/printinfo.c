@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 15:46:17 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/07 16:18:43 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/11 23:40:19 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,46 @@ void	ft_print_control(void)
 	ft_printf("%s\n", "   TAB:					Change Colors");
 }
 
-int	ft_check_choice(int argc, char **argv)
+t_info	ft_check_second_arg_julia(char **argv)
 {
-	if (argc != 2)
+	t_info	info;
+
+	info = ft_julia_info();
+	if (!ft_strncmp("1", argv[2], 2))
+		ft_julia_preset(KP_1, &info);
+	else if (!ft_strncmp("2", argv[2], 2))
+		ft_julia_preset(KP_2, &info);
+	else if (!ft_strncmp("3", argv[2], 2))
+		ft_julia_preset(KP_3, &info);
+	else if (!ft_strncmp("4", argv[2], 2))
+		ft_julia_preset(KP_4, &info);
+	return (info);
+}
+
+void	ft_check_choice(int argc, char **argv, t_info *info)
+{
+	info->fractal_type = 0;
+	if (argc < 2)
 	{
 		ft_print_fract();
-		return (0);
+		return ;
 	}
 	if (!ft_strncmp("Mandelb", argv[1], 8))
 	{
 		ft_print_control();
-		return (1);
+		*info = ft_mandelbrot_info();
 	}
-	else if (!ft_strncmp("Julia", argv[1], 6))
+	else if (!ft_strncmp("Julia", argv[1], 6) && argc == 2)
 	{
 		ft_print_control();
-		return (2);
+		*info = ft_julia_info();
 	}
 	else if (!ft_strncmp("Newton", argv[1], 7))
 	{
 		ft_print_control();
-		return (3);
+		*info = ft_newton_info();
 	}
+	else if (argc >= 3 && !ft_strncmp("Julia", argv[1], 6))
+		*info = ft_check_second_arg_julia(argv);
 	ft_print_fract();
-	return (0);
 }

@@ -35,7 +35,7 @@ SRCSDIR		=	./src/
 
 LIBFTDIR	=	libft/
 
-OBJSDIR		=	./objs/
+OBJSDIR		=	./.objs/
 
 #					Full Path
 
