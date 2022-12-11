@@ -6,7 +6,7 @@
 /*   By: cpapot <cpapot@student.42lyon.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:30:42 by cpapot            #+#    #+#             */
-/*   Updated: 2022/12/11 23:33:52 by cpapot           ###   ########.fr       */
+/*   Updated: 2022/12/11 23:45:15 by cpapot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define FRACT_OL_H
 
 # ifdef __linux__
-#  include "../minilibx-linux/mlx.h"
+#  include "../mlx_lin/mlx.h"
 #  define KB_ESC		65307
 #  define KB_W			122
 #  define KB_A			113
